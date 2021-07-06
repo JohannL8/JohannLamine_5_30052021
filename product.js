@@ -4,6 +4,8 @@ async function main() {
     const productId = getProductId()
     const productData = await getProductData(productId)
     teddyInfo(productData)
+
+
 }
 
 function getProductId() {
@@ -24,6 +26,36 @@ function teddyInfo(product) {
     document.getElementById("teddyName").textContent = product.name
     document.getElementById("teddyDescription").textContent = product.description
     document.getElementById("teddyPrice").textContent = ("Prix :" + " " + product.price / 100 + " " + "€")
-    document.getElementById("templateColor").style.backgroundColor = product.colors
-    console.log(product.colors)
+    
+
+    for (color of product.colors) {
+        const templateElt = document.getElementById("templateColor")
+        const cloneElt = document.importNode(templateElt.content, true)
+
+        cloneElt.getElementById("ColorChoice").style.backgroundColor = color
+
+        document.getElementById("teddyColor").appendChild(cloneElt)
+        console.log(color)
+    }
+    
+    addCart.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        let teddyChoice = {
+            tedName: product.name,
+            tedID: product._id,
+            tedPic: product.imageUrl,
+            tedPrice: product.price,
+            quantity: 1,
+        };
+        console.log(teddyChoice);
+
+        window.localStorage.setItem(product._id, JSON.stringify(teddyChoice));
+
+        window.location.href = "panier.html";
+
+
+    })
+
 }
+
