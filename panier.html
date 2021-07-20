@@ -69,26 +69,33 @@
                                     <div class="col d-flex align-items-center">
                                         <h4 class="product-name" id="tedName"><strong>Product name</strong></h4>
                                     </div>
-                                    <div class="col">
-                                        <div class="col text-right">
-                                            <h6 id="tedPrice" value=""><strong>25 €</strong></h6>
-                                        </div>
+                                    <div class="col text-right d-flex align-items-center">
+                                        <h4 id="tedPrice" value=""><strong>25 €</strong></h4>
+                                    </div>
+                                    <!--<div class="col">
                                         <div class="col">
                                             <div class="row align-items-center">
                                                 <div class="col-6">
-                                                    <input type="text" class="form-control input-sm" id="tedQuantity" value="">
+                                                    <select class="" id="mySelect" onchange="myFunction()">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                      </select>
+                                                    <input type="text" class="form-control input-sm" id="tedQuantity" value="" onkeyup="multiply(this)">
                                                 </div>
+                                                <p id="demo"></p>
                                                 <div class="col-6 text-right">
                                                     <h6 id="tedMultiplePrice">50 €</h6>
                                                 </div>
-                                                <!--<div class="col-2 text-center">
+                                                <div class="col-2 text-center">
                                                     <button type="button" class="btn btn-link btn-xs">
                                                         <span class="glyphicon glyphicon-trash">&times;</span>
                                                     </button>
-                                                </div>-->
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </template>
                             <hr>
@@ -96,7 +103,7 @@
                         <div class="panel-footer">
                             <div class="row text-center d-flex flex-row-reverse">
                                 <div class="col-2">
-                                    <h4><strong>25 € </strong></h4>
+                                    <h4 id="totalPrice"><strong>25 € </strong></h4>
                                 </div>
                                 <div class="col-2">
                                     <h4 class="text-right">Total </h4>
@@ -109,24 +116,24 @@
         </div>
         <div class="container mt-4 border border-light shadow">
             <form class="p-4">
-                <h5>Coordonées</h5>
+                <h5>Coordonées (*champs obligatoires)</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="firstName">Prénom</label>
-                        <input type="text" class="form-control" id="firstName" placeholder=" ">
+                        <label for="firstName">Prénom*</label>
+                        <input type="text" class="form-control" id="firstName" placeholder=" " required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="lastName">Nom</label>
-                        <input type="text" class="form-control" id="lastName" placeholder=" ">
+                        <label for="lastName">Nom*</label>
+                        <input type="text" class="form-control" id="lastName" placeholder=" " required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="email@exemple.fr">
+                    <label for="inputEmail">Email*</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="email@exemple.fr" required>
                 </div>
                 <div class="form-group">
-                    <label for="inputAddress">Adresse</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Adresse postale">
+                    <label for="inputAddress">Adresse*</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Adresse postale" required>
                 </div>
                     <div class="form-group">
                         <label for="inputAddress2">Complément d'adresse</label>
@@ -134,12 +141,12 @@
                     </div>
                 <div class="form-row">
                     <div class="form-group col-md-7">
-                        <label for="inputCity">Ville</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <label for="inputCity">Ville*</label>
+                        <input type="text" class="form-control" id="inputCity" required>
                     </div>
                     <div class="form-group col-md-5">
-                        <label for="inputZip">Code postal</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <label for="inputZip">Code postal*</label>
+                        <input type="text" class="form-control" id="inputZip" required>
                     </div>
                     <!--<div class="form-group col-md-4">
                         <label for="inputState">Pays</label>
@@ -151,7 +158,7 @@
                 </div>
                 <div class="form-group mt-5 col-md-12 d-flex justify-content-center">
                     <div class="text-center">
-                        <button type="button" class="btn btn-success btn-block">
+                        <button type="submit" class="btn btn-success btn-block" id="confirmPaiement">
                             Paiement
                         </button>
                     </div>

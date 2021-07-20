@@ -1,8 +1,10 @@
+let totalPrice = 0;
+
 main()
+
 
 async function main() {
     const values = await allStorage()
-
     for (value of values) {
         displayValue(value)
     }
@@ -19,34 +21,38 @@ function allStorage() {
         displayValue(JSON.parse(localStorage.getItem(keys[i])))
     }
 
-    console.log(values)
-
     return values;
 
+    
 }
 
 
 
+document
+    .getElementById("confirmPaiement")
+    .addEventListener("click", function(e) {
+        e.preventDefault;
+        validatePaiement();
+    });
+
 function displayValue(value) {
-    console.log(value)
-    console.log(value.tedPic)
-    console.log(value.tedName)
+
 
     const templateElt = document.getElementById("templateCart")
-    console.log(templateElt)
     const cloneElt = document.importNode(templateElt.content, true)
-
 
     cloneElt.getElementById("tedPic").src = value.tedPic
     cloneElt.getElementById("tedName").textContent = value.tedName
-    cloneElt.getElementById("tedPrice").textContent = ("Prix unitaire :" + " " + value.tedPrice /100 + " " + "€")
+    cloneElt.getElementById("tedPrice").textContent = ("Prix :" + " " + value.tedPrice /100 + " " + "€")
     cloneElt.getElementById("tedPrice").value = value.tedPrice
 
     document.getElementById("cartItem").appendChild(cloneElt)
-
+    
+    totalPrice = Number(totalPrice) + Number(value.tedPrice)
+     
+    document.getElementById("totalPrice").textContent = (totalPrice / 100 + " " + "€")
 
 }
-
 
 function validatePaiement() {
     const firstName = document.getElementById("firstName")
@@ -69,8 +75,6 @@ function validatePaiement() {
     )) {
         alert("Vous n'avez pas rempli tous les champs necessaires")
         return
-    }
-
-
+    } 
 
 }
