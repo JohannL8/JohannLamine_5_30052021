@@ -52,9 +52,12 @@ function teddyInfo(product) {
 
         window.localStorage.setItem(product._id, JSON.stringify(teddyChoice));
 
-        window.location.href = "panier.html";
-
-
+        if (window.confirm("Voulez-vous voir votre panier ?")) {
+            window.location.href = "panier.html"
+        } else {
+            window.location.href = "index.html"
+        }
+        
     })
 
 }

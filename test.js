@@ -1,4 +1,6 @@
 let totalPrice = 0;
+let myForm = document.getElementById("myForm");
+console.log(document.forms["myForm"]["inputEmail"]);
 
 main()
 
@@ -26,14 +28,65 @@ function allStorage() {
     
 }
 
+document.getElementById("clearCart").addEventListener("click", function(clear) {
+    clear.preventDefault()
+    if (window.confirm("Voulez-vous vraiment vider votre panier ?")) {
+        window.localStorage.clear()
+        window.location.href = "panier.html"
+    } else {
+        return
+    }
+})
 
+document.getElementById("myForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-document
+    const firstName = document.getElementById("firstName").value
+    const lastName = document.getElementById("lastName").value
+    const email = document.getElementById("inputEmail").value
+    const adress = document.getElementById("inputAddress").value
+    const city = document.getElementById("inputCity").value
+    const zip = document.getElementById("inputZip").value
+
+    const zipRegex = /\d{2}[ ]?\d{3}/
+
+    var erreur;
+
+    var inputs = document.getElementsByTagName("input");
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (!inputs[i].value) {
+            erreur = "Veuillez renseigner tous les champs";
+        }
+    }
+    
+    if (erreur) {
+        e.preventDefault();
+        alert('remplir tous les champs')
+        return false;
+    } 
+    e.preventDefault()
+
+    let orderInfo = {
+        firstname: firstName,
+        lastname: lastName,
+        addresse: adress + " " + zip + " " + city,
+        price: totalPrice,
+        mail: email,
+    }
+    console.log(orderInfo)
+    window.localStorage.clear();
+    window.localStorage.setItem("orderStorage", JSON.stringify(orderInfo));
+    window.location.href = "order.html"
+
+});
+
+/*document
     .getElementById("confirmPaiement")
     .addEventListener("click", function(e) {
         e.preventDefault;
         validatePaiement();
-    });
+    });*/
 
 function displayValue(value) {
 
@@ -54,27 +107,32 @@ function displayValue(value) {
 
 }
 
-function validatePaiement() {
-    const firstName = document.getElementById("firstName")
-    const lastName = document.getElementById("lastName")
-    const email = document.getElementById("inputEmail")
-    const adress = document.getElementById("inputAddress")
-    const adressAdd = document.getElementById("inputAddress2")
-    const city = document.getElementById("inputCity")
-    const zip = document.getElementById("inputZip")
-    const state = document.getElementById("inputState")
+/*myForm.addEventListener('submit', function(e) {
+    validatePaiement() 
 
-    const zipRegex = /\d{2}[ ]?\d{3}/
+});*/
 
-    if (!(
-        firstName.length > 2
-        && lastName.length > 2
-        && adress.lenght > 8
-        && city.length > 2
-        && zipRegex.test(zip)
-    )) {
-        alert("Vous n'avez pas rempli tous les champs necessaires")
-        return
-    } 
+// function validatePaiement() {
+//     const firstName = document.getElementById("firstName")
+//     const lastName = document.getElementById("lastName")
+//     const email = document.getElementById("inputEmail")
+//     const adress = document.getElementById("inputAddress")
+//     const adressAdd = document.getElementById("inputAddress2")
+//     const city = document.getElementById("inputCity")
+//     const zip = document.getElementById("inputZip")
+//     const state = document.getElementById("inputState")
 
-}
+//     const zipRegex = /\d{2}[ ]?\d{3}/
+
+//     if (!(
+//         firstName.length > 2
+//         && lastName.length > 2
+//         && adress.lenght > 8
+//         && city.length > 2
+//         /*&& zipRegex.test(zip)*/
+//     )) {
+//         alert("Vous n'avez pas rempli tous les champs necessaires")
+//         return
+//     } 
+
+// }
