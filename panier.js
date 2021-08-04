@@ -99,47 +99,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
         window.location.href = "order.html"
     })
 
-    // window.location.href ="order.html"
-
-    
-
-
-
-    // window.location.href = "order.html"
-
-
-    // for (tedId of values) {
-    //     products.push(tedID.value);
-    // }
-    // console.log(products);
-
-    // product
-    // console.log(orderInfo)
-    // window.localStorage.clear();
-    // window.localStorage.setItem("orderStorage", JSON.stringify(orderInfo));
-    // window.location.href = "order.html"
-
 });
-
-// {
-//     "contact": {
-//         "firstName": "firstName",
-//         "lastName": "lastName",
-//         "address": "adress",
-//         "city": "city",
-//         "email": "email"
-//     },
-//     "products":[
-//         "5beaabe91c9d440000a57d96","5beaaa8f1c9d440000a57d95"
-//     ]
-// }
-
-/*document
-    .getElementById("confirmPaiement")
-    .addEventListener("click", function(e) {
-        e.preventDefault;
-        validatePaiement();
-    });*/
 
 function displayValue(value) {
 
@@ -158,43 +118,4 @@ function displayValue(value) {
      
     document.getElementById("totalPrice").textContent = (totalPrice / 100 + " " + "€")
 
-    // testprod = value.tedID
-
-    // console.log(testprod)
-
-    // let products = []; 
-    // for (listId of values) {
-    //     products.push(listId.id)
-    // }
-    // console.log(products)
 }
-
-/*myForm.addEventListener('submit', function(e) {
-    validatePaiement() 
-
-});*/
-
-// function validatePaiement() {
-//     const firstName = document.getElementById("firstName")
-//     const lastName = document.getElementById("lastName")
-//     const email = document.getElementById("inputEmail")
-//     const adress = document.getElementById("inputAddress")
-//     const adressAdd = document.getElementById("inputAddress2")
-//     const city = document.getElementById("inputCity")
-//     const zip = document.getElementById("inputZip")
-//     const state = document.getElementById("inputState")
-
-//     const zipRegex = /\d{2}[ ]?\d{3}/
-
-//     if (!(
-//         firstName.length > 2
-//         && lastName.length > 2
-//         && adress.lenght > 8
-//         && city.length > 2
-//         /*&& zipRegex.test(zip)*/
-//     )) {
-//         alert("Vous n'avez pas rempli tous les champs necessaires")
-//         return
-//     } 
-
-// }
