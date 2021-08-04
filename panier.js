@@ -38,9 +38,6 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
     const mail = document.getElementById("inputEmail").value
     const adress = document.getElementById("inputAddress").value
     const city = document.getElementById("inputCity").value
-    const zip = document.getElementById("inputZip").value
-
-    const zipRegex = /\d{2}[ ]?\d{3}/
 
     var erreur;
 
