@@ -5,7 +5,6 @@ async function main() {
 
     for (article of articles) {
         displayArticle(article)
-
     }
 }
 
@@ -15,7 +14,6 @@ function getArticles() {
             return httpBodyResponse.json()
         })
         .then(function(articles) {
-            console.log(articles)
             return articles
         })
         .catch(function(error) {
@@ -25,7 +23,6 @@ function getArticles() {
 
 function displayArticle(article) {
     const templateElt = document.getElementById("templateArticle")
-    console.log(templateElt)
     const cloneElt = document.importNode(templateElt.content, true)
 
     cloneElt.getElementById("teddyPic").src = article.imageUrl
@@ -35,6 +32,4 @@ function displayArticle(article) {
     cloneElt.getElementById("productLink").href = ("product.html?id=" + article._id)
 
     document.getElementById("teddyCard").appendChild(cloneElt)
-
-
 }

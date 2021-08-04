@@ -14,7 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <script src="./order.js"></script>
+    <script src="./order.js" defer></script>
+
 </head>
 
 <body>
@@ -46,17 +47,18 @@
         </div>
     </header>
     <main>
-        <div class="container mt-4 border border-light shadow">
+        <div class="container mt-4 p-4 border border-light shadow">
             <div class="row text-center" id="validate">
                 <div class="col">
-                    <h2>Félicitation !</h2>
+                    <h2>Merci de votre commande M./Mme <span id="orderName"></span> </h2>
                     <br>
-                    <div>Votre commande n°<span id="orderCode"></span> d'un total de <span id="orderPrice"></span>€ vous seras bien envoyé à l'adresse suivante :</div>
-                    <div id="orderAddress">
-                        <p>prenom nom</p>
-                        <p>12 rue de test</p>
-                    </div>
+                    <div>Votre commande n° <span id="orderCode"></span> <br> d'un montant total de <span id="orderPrice"></span>€ <br> vous seras bien envoyé à l'adresse suivante :</div><br>
+                    <div><span id="orderAdress"></span><br><span id="orderCity"></span></div><br>
+                    <div>Un mail de confirmation vous sera envoyé à l'adresse : <br><span id="orderEmail"></span></div>
                 </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="index.html" type="button" class="btn btn-primary">Retourner à l'accueil</a>
             </div>
         </div>
     </main>

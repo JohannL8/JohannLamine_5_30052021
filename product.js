@@ -4,8 +4,6 @@ async function main() {
     const productId = getProductId()
     const productData = await getProductData(productId)
     teddyInfo(productData)
-
-
 }
 
 function getProductId() {
@@ -35,7 +33,6 @@ function teddyInfo(product) {
         cloneElt.getElementById("ColorChoice").style.backgroundColor = color
 
         document.getElementById("teddyColor").appendChild(cloneElt)
-        console.log(color)
     }
     
     addCart.addEventListener("click", function (event) {
@@ -48,7 +45,6 @@ function teddyInfo(product) {
             tedPrice: product.price,
             quantity: 1,
         };
-        console.log(teddyChoice);
 
         window.localStorage.setItem(product._id, JSON.stringify(teddyChoice));
 
@@ -57,7 +53,6 @@ function teddyInfo(product) {
         } else {
             window.location.href = "index.html"
         }
-        
     })
 
 }

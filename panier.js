@@ -1,32 +1,23 @@
 let totalPrice = 0;
 let myForm = document.getElementById("myForm");
 
-
 main()
-
 
 async function main() {
     const values = await allStorage()
     for (value of values) {
         displayValue(value)
     }
-
 }
 
 function allStorage() {
-
     var values = [],
         keys = Object.keys(localStorage),
         i = keys.length;
-
     while ( i-- ) {
         displayValue(JSON.parse(localStorage.getItem(keys[i])))
     }
-
-    return values;
-
-
-    
+    return values;   
 }
 
 document.getElementById("clearCart").addEventListener("click", function(clear) {
@@ -76,7 +67,6 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
         email: mail,
     }
 
-
     let products = Object.keys(localStorage)
     console.log(products)
 
@@ -96,13 +86,12 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
     })
     .then(function(data) {
         localStorage.setItem("order", JSON.stringify(data));
+        localStorage.setItem("totalPrice", totalPrice);
         window.location.href = "order.html"
     })
-
 });
 
 function displayValue(value) {
-
 
     const templateElt = document.getElementById("templateCart")
     const cloneElt = document.importNode(templateElt.content, true)
@@ -117,5 +106,4 @@ function displayValue(value) {
     totalPrice = Number(totalPrice) + Number(value.tedPrice)
      
     document.getElementById("totalPrice").textContent = (totalPrice / 100 + " " + "€")
-
 }
