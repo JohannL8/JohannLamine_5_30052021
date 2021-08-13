@@ -25,7 +25,6 @@ function teddyInfo(product) {
     document.getElementById("teddyDescription").textContent = product.description
     document.getElementById("teddyPrice").textContent = ("Prix :" + " " + product.price / 100 + " " + "€")
     
-
     for (color of product.colors) {
         const templateElt = document.getElementById("templateColor")
         const cloneElt = document.importNode(templateElt.content, true)
@@ -54,6 +53,5 @@ function teddyInfo(product) {
             window.location.href = "index.html"
         }
     })
-
 }
 

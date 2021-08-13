@@ -65,7 +65,6 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
     }
 
     let products = Object.keys(localStorage)
-    console.log(products)
 
     fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
@@ -83,6 +82,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
     })
     .then(function(data) {
         localStorage.setItem("order", JSON.stringify(data));
+
         localStorage.setItem("totalPrice", totalPrice);
         window.location.href = "order.html"
     })
@@ -96,7 +96,6 @@ function displayValue(value) {
     cloneElt.getElementById("tedPic").src = value.tedPic
     cloneElt.getElementById("tedName").textContent = value.tedName
     cloneElt.getElementById("tedPrice").textContent = ("Prix :" + " " + value.tedPrice /100 + " " + "€")
-    cloneElt.getElementById("tedPrice").value = value.tedPrice
 
     document.getElementById("cartItem").appendChild(cloneElt)
     
