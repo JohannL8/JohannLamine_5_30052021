@@ -25,8 +25,6 @@ document.getElementById("clearCart").addEventListener("click", function(clear) {
     if (window.confirm("Voulez-vous vraiment vider votre panier ?")) {
         window.localStorage.clear()
         window.location.href = "panier.html"
-    } else {
-        return
     }
 })
 
